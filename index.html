@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 13</title>
+</head>
+<body>
+    <ul></ul>
+    <script>
+        var solutFact = [];
+        for (var i = 0; i < 10; i++) {
+            var calcFact = getFactorial(i);
+            solutFact.push(calcFact);
+        }
+
+        function getFactorial(num) {
+            if (num == 0 || num == 1) {
+                return 1;
+            } else {
+                return num * getFactorial(num - 1);
+            }
+        }
+
+        function getFactorion(val) {
+            for (var l = 0; l < val; l++) {
+                var strNumber = l.toString(),
+                    symNumber,
+                    sumFact = 0;
+
+                for (var k = 0; k < strNumber.length; k++) {
+                    symNumber = strNumber.charAt(k);
+                    sumFact += solutFact[symNumber];
+                }
+
+                if (l == sumFact) {
+                    getList(sumFact);
+                }
+            }
+        }
+        getFactorion(1000000);
+
+        function getList(sumFact) {
+            var ul = document.body.children[0];
+            ul.insertAdjacentHTML("beforeEnd", "<li>" + sumFact + "</li>");
+        }
+    </script>
+</body>
+</html>
